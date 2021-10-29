@@ -1,0 +1,11 @@
+algoritmo "AumentoSalario"
+
+var
+   SalarioInicial, SalarioFinal: real
+inicio
+
+escreval("Informe seu salário atual: ")
+                  leia(SalarioInicial)
+SalarioFinal <- SalarioInicial * 1.3
+             escreval("Salario ajustado: ", SalarioFinal)
+fimalgoritmo
