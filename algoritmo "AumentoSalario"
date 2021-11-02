@@ -1,4 +1,4 @@
-algoritmo "AumentoSalario"
+algoritmo "AjusteSalario"
 
 var
    SalarioInicial, SalarioFinal: real
