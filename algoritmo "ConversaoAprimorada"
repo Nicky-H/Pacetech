@@ -1,0 +1,79 @@
+algoritmo "ConversaoAprimorada"
+
+var
+tempoA: vetor[1..4] de real
+tempoB: vetor[1..4] de real
+opMenu, a, b, j: inteiro
+resultC, resultF, aux1, aux2 : real
+v: logico
+
+funcao convFC (f: real): real
+inicio
+retorne (f-32)/1.8
+fimfuncao
+
+funcao convCF (y: real): real
+inicio
+retorne y * 1.8 + 32
+fimfuncao
+
+procedimento mBolha() : real
+inicio
+
+para b de 1 ate 4 faca
+   para j  de 1 ate 4 faca
+      se tempoB[b]< tempoB[j] entao
+         aux1<- tempoB[j]
+         aux2 <- tempoA[j]
+         tempoB[j]<-tempoB[b]
+         tempoA[j]<-tempoA[b]
+         tempoB[b]<- aux1
+         tempoA[b]<- aux2
+      fimse
+   fimpara
+fimpara
+
+fimprocedimento
+
+inicio
+escreval("Escolha a operação:")
+escreval("1 - Celsius para Fahrenheit;")
+escreval("2 - Fahrenheit para Celsius")
+leia(opMenu)
+limpatela
+
+para a de 1 ate 4 faca
+   escreval("Informe o horário de cada conversão: ", a)
+   leia(tempoA[a])
+fimpara
+para b de 1 ate 4 faca
+   escreval("Informe a temperatura inicial: ", b)
+   leia(tempoB[b])
+fimpara
+limpatela
+
+mBolha()
+
+se opMenu = 1 entao
+
+   escreval()
+   escreval("Os resultados das conversões, organizados em forma crescente, são: ")
+   para b de 1 ate 4 faca
+      resultF<-convCF(tempoB[b])
+      escreval( "A temperatura ", tempoB[b], "C, registrada as ", tempoA[b], " horas corresponde a ", resultF:10:2, "F")
+   fimpara
+
+senao
+
+   se opMenu = 2 entao
+
+      escreval()
+      escreval("Os resultados das conversões, em forma crescente, são: ")
+      para b de 1 ate 4 faca
+         resultC<-convFC(tempoB[b])
+         escreval( "A temperatura ", tempoB[b], "F, registrada as ", tempoA[b], " horas corresponde a ", resultC:10:2, "C")
+      fimpara
+   fimse
+fimse
+
+fimalgoritmo
